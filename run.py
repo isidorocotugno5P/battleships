@@ -49,3 +49,21 @@ def get_computer_guess(guessed_positions):
         row, col = random_position()
         if (row, col) not in guessed_positions:
             return row, col
+
+def play_turn(player, opponent_board, guessed_positions):
+    print(f"{player}'s turn!")
+    if player == "User":
+        row, col = get_user_guess(guessed_positions)
+    else:
+        row, col = get_computer_guess(guessed_positions)
+        print(f"Computer guessed: {row}, {col}")
+    
+    guessed_positions.add((row, col))
+    
+    if opponent_board[row][col] == "S":
+        print(f"{player} has sunk the battleship!")
+        return True
+    else:
+        print("Miss!")
+        opponent_board[row][col] = "X"
+        return False
