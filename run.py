@@ -67,3 +67,31 @@ def play_turn(player, opponent_board, guessed_positions):
         print("Miss!")
         opponent_board[row][col] = "X"
         return False
+    
+# Initialize boards and positions
+user_board = generate_board()
+computer_board = generate_board()
+user_guesses = set()
+computer_guesses = set()
+
+# Place ships
+user_ship = random_position()
+computer_ship = random_position()
+user_board[user_ship[0]][user_ship[1]] = "S"
+computer_board[computer_ship[0]][computer_ship[1]] = "S"
+
+turn = 0
+while True:
+    print("\nUser's Board:")
+    print_board(user_board, hide_ships=False)
+    print("\nComputer's Board:")
+    print_board(computer_board)
+    
+    if play_turn("User", computer_board, user_guesses):
+        print("User wins!")
+        break
+    if play_turn("Computer", user_board, computer_guesses):
+        print("Computer wins!")
+        break
+    
+    turn += 1
