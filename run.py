@@ -10,3 +10,42 @@ def print_board(board, hide_ships=True):
 def random_position():
     return randint(0, 9), randint(0, 9)
 
+def get_user_guess(guessed_positions):
+    while True:
+        try:
+            row = int(input("Guess Row (0-9): "))
+            col = int(input("Guess Column (0-9): "))
+            if (row, col) in guessed_positions:
+                print("You already guessed that position, try again.")
+                continue
+            if 0 <= row < 10 and 0 <= col < 10:
+                return row, col
+            print("Invalid input. Enter numbers between 0 and 9.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+def get_computer_guess(guessed_positions):
+    while True:
+        row, col = random_position()
+        if (row, col) not in guessed_positions:
+            return row, col
+        
+def get_user_guess(guessed_positions):
+    while True:
+        try:
+            row = int(input("Guess Row (0-9): "))
+            col = int(input("Guess Column (0-9): "))
+            if (row, col) in guessed_positions:
+                print("You already guessed that position, try again.")
+                continue
+            if 0 <= row < 10 and 0 <= col < 10:
+                return row, col
+            print("Invalid input. Enter numbers between 0 and 9.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+def get_computer_guess(guessed_positions):
+    while True:
+        row, col = random_position()
+        if (row, col) not in guessed_positions:
+            return row, col
