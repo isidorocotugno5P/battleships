@@ -1,18 +1,20 @@
-from random import randint
+import random
 
-def generate_board():
-    """
-    Comment Placeholder
-    """
-    return [["O"] * 10 for _ in range(10)]
+class GameBoard:
+    def __init__(self, size=10):
+        self.size = size
+        self.grid = [["O"] * size for _ in range(size)]
 
-def print_board(board, hide_ships=True):
-    """
-    Comment Placeholder
-    """
-    for row in board:
-        print(" ".join("O" if cell == "S" and hide_ships else cell for cell in row))
+    def display(self, hide_ships=True):
+        for i in range(len(self.grid)):
+            for j in range(len(self.grid[i])):
+                if self.grid[i][j] == "S" and hide_ships:
+                    print("O", end=" ")
+                else:
+                    print(self.grid[i][j], end=" ")
+            print()
 
+"""
 def random_position():
     """
     Comment Placeholder
@@ -155,3 +157,4 @@ while True:
         break
     
     turn += 1
+    """
