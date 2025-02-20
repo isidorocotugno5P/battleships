@@ -1,5 +1,6 @@
 import random
 
+
 class GameBoard:
     """
     This class represents the Battleship game board.
@@ -88,3 +89,5 @@ class GameBoard:
                 print("Invalid input. Enter numbers between 1 and 10.")
             except ValueError:
                 print("Please enter a valid number.")
+                
+
