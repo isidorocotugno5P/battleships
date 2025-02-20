@@ -90,4 +90,21 @@ class GameBoard:
             except ValueError:
                 print("Please enter a valid number.")
                 
+class BattleshipGame:
+    """
+    Controls the sequence of the battleship game, this includes turns, 
+    win/loss detection, and computer and user guesses.
+    """
+    def __init__(self):
+        """
+	    Starts game and creates both game boards and initiates placement of both players ships
+	
+	    Also initiates and collected both computer and players guesses
+	    """
+        self.user_board = GameBoard()
+        self.computer_board = GameBoard()
+        self.user_ships = self.user_board.place_ships()
+        self.computer_ships = self.computer_board.place_ships()
+        self.user_guesses = set()
+        self.computer_guesses = set()
 
