@@ -33,155 +33,58 @@ class GameBoard:
         
         Return a dictionairy with the value being the position of the ship as well as its hit count.
         """
-        fleet_sizes = [5, 4, 3, 2, 1]
+        fleet_sizes = [5, 4, 3, 2, 1] # List of all ship sizes
         fleet = {}
         for size in fleet_sizes:
             placed = False
             while not placed:
                 row, col = self.get_random_position()
-                direction = random.choice(["H", "V"])
-                
-"""
-def random_position():
-    """
-    Comment Placeholder
-    """
-    return randint(0, 9), randint(0, 9)
+                direction = random.choice(["H", "V"]) # Chooses randomly between horizontal and vertical placement
+                if direction == "H":
+                    # Makes sure there is space for the ship as well as no overlap with other ships
+                    if col + size <= self.size and all(
+                        self.grid[row][c] == "O" for c in range(col, col + size)
+                    ):
+                        for c in range(col, col + size):
+                            self.grid[row][c] = "S"
+                        fleet[size] = {
+                            "coords": [(row, c) for c in range(col, col + size)],
+                            "hits": 0,
+                        }
+                        placed = True
+                else:
+                    if row + size <= self.size and all(
+                        self.grid[r][col] == "O" for r in range(row, row + size)
+                    ):
+                        for r in range(row, row + size):
+                            self.grid[r][col] = "S"
+                        fleet[size] = {
+                            "coords": [(r, col) for r in range(row, row + size)],
+                            "hits": 0,
+                        }
+                        placed = True
+        return fleet
 
-def place_ships(board):
-    """
-    Comment Placeholder
-    """
-    ship_sizes = [5, 4, 3, 2, 1]
-    ships = []
-    for size in ship_sizes:
-        placed = False
-        while not placed:
-            row, col = random_position()
-            direction = randint(0, 1)  
-            
-            if direction == 0:  
-                if col + size <= 10 and all(board[row][c] == "O" for c in range(col, col + size)):
-                    for c in range(col, col + size):
-                        board[row][c] = "S"
-                    ships.append([(row, c) for c in range(col, col + size)])
-                    placed = True
-            else:  
-                if row + size <= 10 and all(board[r][col] == "O" for r in range(row, row + size)):
-                    for r in range(row, row + size):
-                        board[r][col] = "S"
-                    ships.append([(r, col) for r in range(row, row + size)])
-                    placed = True
-    return ships
-
-def get_user_guess(guessed_positions):
-    """
-    Comment Placeholder
-    """
-    while True:
-        try:
-            row = int(input("Guess Row (0-9): "))
-            col = int(input("Guess Column (0-9): "))
-            if (row, col) in guessed_positions:
-                print("You already guessed that position, try again.")
-                continue
-            if 0 <= row < 10 and 0 <= col < 10:
-                return row, col
-            print("Invalid input. Enter numbers between 0 and 9.")
-        except ValueError:
-            print("Please enter a valid number.")
-
-def get_computer_guess(guessed_positions):
-    """
-    Comment Placeholder
-    """
-    while True:
-        row, col = random_position()
-        if (row, col) not in guessed_positions:
-            return row, col
-
-def check_ship_sunk(ships, hit_position):
-    """
-    Comment Placeholder
-    """
-    for ship in ships:
-        if hit_position in ship:
-            ship.remove(hit_position)
-            if not ship:
-                print("A ship has been sunk!")
-                ships.remove(ship)
-            return len(ships) == 0
-    return False
-
-def play_turn(player, opponent_board, guessed_positions, opponent_ships):
-    """
-    Comment Placeholder
-    """
-    print(f"{player}'s turn!")
-    if player == "User":
-        row, col = get_user_guess(guessed_positions)
-    else:
-        row, col = get_computer_guess(guessed_positions)
-        print(f"Computer guessed: {row}, {col}")
-    
-    guessed_positions.add((row, col))
-    
-    if opponent_board[row][col] == "S":
+    def get_random_position(self):
         """
-        Comment Placeholder
+        Returns a random position (2 values: column and row) on the board, for the ship placement function.
         """
-        print(f"{player} hit a ship!")
-        opponent_board[row][col] = "X"
-        if check_ship_sunk(opponent_ships, (row, col)):
-            """
-            Comment Placeholder
-            """
-            print(f"{player} has sunk all opponent's ships!")
-            return True
-    else:
+        return random.choice(range(self.size)), random.choice(range(self.size))
+
+    def get_user_guess(self, guessed_positions):
         """
-        Comment Placeholder
+        Gets a valid guess from the user, excluding letters, special symbols,
+        any number outside of the board, and any position that has already been guessed.
         """
-        print("Miss!")
-        opponent_board[row][col] = "X"
-    
-    return False
-
-print("Welcome to Battleship!")
-
-"""
-Comment Placeholder
-"""
-user_board = generate_board()
-computer_board = generate_board()
-user_guesses = set()
-computer_guesses = set()
-
-"""
-Comment Placeholder
-"""
-user_ships = place_ships(user_board)
-computer_ships = place_ships(computer_board)
-
-turn = 0
-while True:
-    """
-    Comment Placeholder
-    """
-    print("\nUser's Board:")
-    print_board(user_board, hide_ships=False)
-    print("\nComputer's Board:")
-    print_board(computer_board)
-    
-    """
-    Comment Placeholder
-    """
-    if play_turn("User", computer_board, user_guesses, computer_ships):
-        print("User wins!")
-        break
-    if play_turn("Computer", user_board, computer_guesses, user_ships):
-        print("Computer wins!")
-        break
-    
-    turn += 1
-    """
+        while True:
+            try:
+                row = int(input("Guess Row (1-10): ")) - 1
+                col = int(input("Guess Column (1-10): ")) - 1
+                if (row, col) in guessed_positions:
+                    print("You already guessed that position, try again.")
+                    continue
+                if 0 <= row < self.size and 0 <= col < self.size:
+                    return row, col
+                print("Invalid input. Enter numbers between 1 and 10.")
+            except ValueError:
+                print("Please enter a valid number.")
