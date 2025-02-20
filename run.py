@@ -1,11 +1,24 @@
 import random
 
 class GameBoard:
+    """
+    This class represents the Battleship game board.
+    
+    It holds functions for board creation, board display, and placement of ships.
+    """
     def __init__(self, size=10):
+        """
+        Sets size of game board, the default size for this game is 10x10.
+        """
         self.size = size
         self.grid = [["O"] * size for _ in range(size)]
 
     def display(self, hide_ships=True):
+        """
+        Displays grid to terminal to become visible to user.
+        
+        Displays "O" for empty spots, "S" for the ships themselves, and "X" for any time a player hits a ship.
+        """
         for i in range(len(self.grid)):
             for j in range(len(self.grid[i])):
                 if self.grid[i][j] == "S" and hide_ships:
@@ -13,7 +26,21 @@ class GameBoard:
                 else:
                     print(self.grid[i][j], end=" ")
             print()
-
+            
+    def place_ships(self):
+        """
+        Randomly places ships onto the board without causing ships to overlap.
+        
+        Return a dictionairy with the value being the position of the ship as well as its hit count.
+        """
+        fleet_sizes = [5, 4, 3, 2, 1]
+        fleet = {}
+        for size in fleet_sizes:
+            placed = False
+            while not placed:
+                row, col = self.get_random_position()
+                direction = random.choice(["H", "V"])
+                
 """
 def random_position():
     """
