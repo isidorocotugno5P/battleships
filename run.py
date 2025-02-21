@@ -4,11 +4,12 @@ import os
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
+
 def clear():
-     """
-     Clear function to clean-up the terminal so things don't get messy.
-     """
-     os.system("cls" if os.name == "nt" else "clear")
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 class GameBoard:
@@ -203,4 +204,3 @@ if __name__ == "__main__":
     """
     game = BattleshipGame()
     game.play_game()
-
