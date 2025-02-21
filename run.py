@@ -100,10 +100,10 @@ class BattleshipGame:
     """
     def __init__(self):
         """
-	    Starts game and creates both game boards and initiates placement of both players ships
-	
-	    Also initiates and collected both computer and players guesses
-	    """
+        Starts game and creates both game boards and initiates placement of both players ships
+
+        Also initiates and collected both computer and players guesses
+        """
         self.user_board = GameBoard()
         self.computer_board = GameBoard()
         self.user_ships = self.user_board.place_ships()
@@ -145,4 +145,16 @@ class BattleshipGame:
         else:
             print("Miss!")
             target_board.grid[row][col] = "M"
+            
+    def play_game(self):
+        """
+        Starts the actual game and runs until computer or user sinks all ships
+        """
+        print("Welcome to Battleship!")
+        while True:
+            # Prints each players board, for each iteration of the loop
+            print("\nUser's Board:")
+            self.user_board.display(hide_ships=False)
+            print("\nComputer's Board:")
+            self.computer_board.display()
 
