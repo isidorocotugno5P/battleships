@@ -157,4 +157,17 @@ class BattleshipGame:
             self.user_board.display(hide_ships=False)
             print("\nComputer's Board:")
             self.computer_board.display()
+            
+            # Checks for winner
+            if not self.computer_ships:
+                print("User wins!")
+                print("In order to replay the game, please rerun the program")
+                break
+            if not self.user_ships:
+                print("Computer wins!")
+                print("In order to replay the game, please rerun the program")
+                break
 
+	        # Turn taking part of loop
+            self.play_turn("User")
+            self.play_turn("Computer")
