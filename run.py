@@ -1,7 +1,14 @@
 import random
 import colorama
+import os
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+
+def clear():
+     """
+     Clear function to clean-up the terminal so things don't get messy.
+     """
+     os.system("cls" if os.name == "nt" else "clear")
 
 
 class GameBoard:
@@ -166,6 +173,7 @@ class BattleshipGame:
         """
         print("Welcome to Battleship!")
         while True:
+            clear()
             # Prints each players board, for each iteration of the loop
             print("\nUser's Board:")
             self.user_board.display(hide_ships=False)
@@ -195,3 +203,4 @@ if __name__ == "__main__":
     """
     game = BattleshipGame()
     game.play_game()
+
