@@ -137,6 +137,7 @@ class BattleshipGame:
         """
         if player == "User":
             row, col = self.user_board.get_user_guess(self.user_guesses)
+            clear()
         else:
             row, col = self.computer_board.get_random_position()
             while (row, col) in self.computer_guesses:
@@ -144,28 +145,28 @@ class BattleshipGame:
             print(f"Computer guessed: {row + 1}, {col + 1}")
 
         # Updates targeted board
+        
         target_board = (
             self.computer_board if player == "User" else self.user_board)
         guessed_positions = (
             self.user_guesses if player == "User" else self.computer_guesses)
         ships = self.computer_ships if player == "User" else self.user_ships
-
         guessed_positions.add((row, col))
 
         if target_board.grid[row][col] == "S":
             """
             Updates symbols on board to indicate hit or miss
             """
-            print(f"{player} hit a ship!")
+            print(Fore.GREEN + f"{player} hit a ship!")
             target_board.grid[row][col] = "X"
             for ship in ships.values():
                 if (row, col) in ship["coords"]:
                     ship["hits"] += 1
                     if ship["hits"] == len(ship["coords"]):
-                        print(f"{player} has sunk a ship!")
+                        print(Back.GREEN + f"{player} has sunk a ship!")
                     break
         else:
-            print("Miss!")
+            print(Fore.RED + "Miss!")
             target_board.grid[row][col] = "M"
 
     def play_game(self):
@@ -174,7 +175,6 @@ class BattleshipGame:
         """
         print("Welcome to Battleship!")
         while True:
-            clear()
             # Prints each players board, for each iteration of the loop
             print("\nUser's Board:")
             self.user_board.display(hide_ships=False)
