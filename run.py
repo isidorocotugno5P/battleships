@@ -1,4 +1,7 @@
 import random
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 
 
 class GameBoard:
@@ -119,3 +122,27 @@ class BattleshipGame:
             while (row, col) in self.computer_guesses:
                 row, col = self.computer_board.get_random_position()
             print(f"Computer guessed: {row + 1}, {col + 1}")
+            
+        # Updates targeted board
+        target_board = self.computer_board if player == "User" else self.user_board
+        guessed_positions = self.user_guesses if player == "User" else self.computer_guesses
+        ships = self.computer_ships if player == "User" else self.user_ships
+
+        guessed_positions.add((row, col))
+
+        if target_board.grid[row][col] == "S":
+            """
+            Updates symbols on board to indicate hit or miss
+            """
+            print(f"{player} hit a ship!")
+            target_board.grid[row][col] = "X"
+            for ship in ships.values():
+                if (row, col) in ship["coords"]:
+                    ship["hits"] += 1
+                    if ship["hits"] == len(ship["coords"]):
+                        print(f"{player} has sunk a ship!")
+                    break
+        else:
+            print("Miss!")
+            target_board.grid[row][col] = "M"
+
