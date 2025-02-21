@@ -145,7 +145,7 @@ class BattleshipGame:
             print(f"Computer guessed: {row + 1}, {col + 1}")
 
         # Updates targeted board
-        
+
         target_board = (
             self.computer_board if player == "User" else self.user_board)
         guessed_positions = (
@@ -174,7 +174,7 @@ class BattleshipGame:
         Starts the actual game and runs until computer or user sinks all ships
         """
         print("Welcome to Battleship!\n")
-        print("Instructions: Guess a number between 1 and 10 for a row and column")
+        print("Instructions: Guess a number between 1-10 for a row and column")
         print("’S’ marks a ship, ’X’ marks a hit, and ’M’ marks a miss")
         while True:
             # Prints each players board, for each iteration of the loop
