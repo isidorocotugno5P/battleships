@@ -108,3 +108,14 @@ class BattleshipGame:
         self.user_guesses = set()
         self.computer_guesses = set()
 
+    def play_turn(self, player):
+        """
+        Initiates turn for player, handling both turns for computer and player
+        """
+        if player == "User":
+            row, col = self.user_board.get_user_guess(self.user_guesses)
+        else:
+            row, col = self.computer_board.get_random_position()
+            while (row, col) in self.computer_guesses:
+                row, col = self.computer_board.get_random_position()
+            print(f"Computer guessed: {row + 1}, {col + 1}")
