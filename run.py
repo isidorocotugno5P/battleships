@@ -82,7 +82,7 @@ class GameBoard:
         """
         while True:
             try:
-                row = int(input("Guess Row (1-10): ")) - 1
+                row = int(input("\nGuess Row (1-10): ")) - 1
                 col = int(input("Guess Column (1-10): ")) - 1
                 if (row, col) in guessed_positions:
                     print("You already guessed that position, try again.")
@@ -171,3 +171,12 @@ class BattleshipGame:
 	        # Turn taking part of loop
             self.play_turn("User")
             self.play_turn("Computer")
+            
+if __name__ == "__main__":
+    """
+    Protects user from accidentally invoking script
+
+    Only initiates when intended 
+    """
+    game = BattleshipGame()
+    game.play_game()
