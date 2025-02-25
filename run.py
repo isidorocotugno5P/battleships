@@ -11,6 +11,7 @@ def clear():
     """
     os.system("cls" if os.name == "nt" else "clear")
 
+
 class GameBoard:
     """
     This class represents the Battleship game board.
@@ -151,7 +152,6 @@ class BattleshipGame:
             self.user_guesses if player == "User" else self.computer_guesses)
         ships = self.computer_ships if player == "User" else self.user_ships
         guessed_positions.add((row, col))
-        
 
         if target_board.grid[row][col] == "S":
             """
