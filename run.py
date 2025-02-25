@@ -151,11 +151,12 @@ class BattleshipGame:
             """
             print(Fore.GREEN + f"{player} hit a ship!")
             target_board.grid[row][col] = "X"
-            for ship in ships.values():
+            for ship_size, ship in list(ships.items()):
                 if (row, col) in ship["coords"]:
                     ship["hits"] += 1
                     if ship["hits"] == len(ship["coords"]):
                         print(Back.GREEN + f"{player} has sunk a ship!")
+                        del ships[ship_size]
                     break
         else:
             print(Fore.RED + "Miss!")
@@ -177,12 +178,12 @@ class BattleshipGame:
 
             # Checks for winner
             if not self.computer_ships:
-                print("User wins!")
-                print("In order to replay the game, please rerun the program")
+                print(Back.GREEN + "User wins!\n")
+                print("In order to replay the game, please rerun the program\n")
                 break
             if not self.user_ships:
-                print("Computer wins!")
-                print("In order to replay the game, please rerun the program")
+                print(Back.RED + "Computer wins!\n")
+                print("In order to replay the game, please rerun the program\n")
                 break
 
             # Turn taking part of loop

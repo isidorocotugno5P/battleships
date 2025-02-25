@@ -251,6 +251,8 @@ random.choice
 
 Python Dictionairies 
 
+pop()
+
 ## Deployment (Update deployment accordingly with vscode and render, etc. before submission)
 
 ### Cloning Repository 
