@@ -78,25 +78,25 @@ As a player I want to be informed of when all ships are sunk on either side, det
 
 Below you will find an image of how the users board would be displayed. The player should be able to see where their ships are located without the computer knowing their location.
 
-![User Board](../battleships/assets%20/images/user-board.png)
+![User Board](assets/images/user-board.png)
 
 ### Computer Board
 
 Below you will find a picture of the computers game board, that at first appears to be empty, but in reality, they are hidden so the user can not see them, otherwise it would make the game far too easy, reducing the quality of the user experience. 
 
-![Computer Board](../battleships/assets%20/images/computer-board.png)
+![Computer Board](assets/images/computer-board.png)
 
 ### Intro
 
 Below is an image of the intro text displayed once the game is run with a welcome message as well as a simple breakdown of the rules and cues.
 
-![Intro](../battleships/assets%20/images/game-intro.png)
+![Intro](assets/images/game-intro.png)
 
 ### End Game
 
 Below you will find the display message that appears the moment someone wins/loses. If the computer wins it is red, since the user lost, but if the user wins, it is green.
 
-![End](../battleships/assets%20/images/game-end.png)
+![End](assets/images/game-end.png)
 
 ## Styles
 
@@ -110,7 +110,7 @@ Although color schemes are intuitive, with such simple colors, and limited choic
 
 Below you will find the visual depiction of how I used the red color of colorama
 
-![Miss](../battleships/assets%20/images/miss.png)
+![Miss](assets/images/miss.png)
 
 The red colored lettering for the "Miss" user message is the only red in the game indicating a miss, making it visually very clear what has happened.
 
@@ -118,8 +118,8 @@ The red colored lettering for the "Miss" user message is the only red in the gam
 
 Below you will find the visual depiction of how I used the green color of colorama
 
-![Hit](../battleships/assets%20/images/hit.png)
-![Sunk](../battleships/assets%20/images/sunk.png)
+![Hit](assets/images/hit.png)
+![Sunk](assets/images/sunk.png)
 
 The green colored lettering for one, and the green background for the other user message is a clear indication of the opposite spectrum. It very intuitively tells the user that someone successfuly made something happen. In this case it is hitting or sinking a ship.
 
@@ -127,13 +127,13 @@ The green colored lettering for one, and the green background for the other user
 
 Below you will find an image of results on this projects linter
 
-![Python Linter](../battleships/assets%20/images/python-linter.png)
+![Python Linter](assets/images/python-linter.png)
 
 ## Function Flow
 
 Below you will find a flow chart of the functions
 
-![Function Flowchart](../battleships/assets%20/images/battleship-flowchart.png)
+![Function Flowchart](assets/images/battleship-flowchart.png)
 
 ## Technologies Used 
 
