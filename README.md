@@ -74,6 +74,22 @@ As a player I want to be informed of when all ships are sunk on either side, det
 
 ## Features 
 
+### User Board
+
+![User Board](../battleships/assets%20/images)
+
+### Computer Board
+
+![Computer Board](../battleships/assets%20/images)
+
+### Intro
+
+![Intro](../battleships/assets%20/images)
+
+### End Game
+
+![End](../battleships/assets%20/images)
+
 ## Styles
 
 Since this project was a lot less design heavy then the first two, the Style section of this README is very limited to my knowledge and my capacity, but through the help of my mentor I learned about colorama which helped me make the most of styling the game. Through the use of colorama I was able to get a message to the user by solely using visual cues that are colored in an intuitive way. 
@@ -84,13 +100,32 @@ Although color schemes are intuitive, with such simple colors, and limited choic
 
 #### Red Foreground
 
+Below you will find the visual depiction of how I used the red color of colorama
+
+![Miss](../battleships/assets%20/images/miss.png)
+
 The red colored lettering for the "Miss" user message is the only red in the game indicating a miss, making it visually very clear what has happened.
 
 #### Green Foreground and Background
 
+Below you will find the visual depiction of how I used the green color of colorama
+
+![Hit](../battleships/assets%20/images/hit.png)
+![Sunk](../battleships/assets%20/images/sunk.png)
+
 The green colored lettering for one, and the green background for the other user message is a clear indication of the opposite spectrum. It very intuitively tells the user that someone successfuly made something happen. In this case it is hitting or sinking a ship.
 
+## Syntax (Reupload more current code before submission)
+
+Below you will find an image of results on this projects linter
+
+![Python Linter](../battleships/assets%20/images/python-linter.png)
+
 ## Function Flow
+
+Below you will find a flow chart of the functions
+
+![Function Flowchart](../battleships/assets%20/images/battleship-flowchart.png)
 
 ## Technologies Used 
 
@@ -98,7 +133,7 @@ The green colored lettering for one, and the green background for the other user
 
 1. [Python](https://www.python.org/)
 
-    * Entire codebase
+    * Entire codebase, but also used the website for educational content
 
 ### Libraries 
 
@@ -129,18 +164,48 @@ The green colored lettering for one, and the green background for the other user
 ## Testing 
 
 ### General Testing 
+
+Testing this time around was very simple, easy, and straightforward. Since we were using only one language for this project, as well as it having been a simpler one, leads to the fact that certain aspects of this README are not as elaborate as other README files that I have done. It is possible because I do not know the scope all testing possibilities across all languages, but I tried my best to cover what I knew and what I thought was important.
+
+This time around I used print() more than ever before to check if what I was building, and the logic I was putting together, was making structural sense. I had to make sure, that for almost every line of code I was putting down, that I was extracting the correct information, placing the correct information, or storing/sending/returning the correct information, for the build to actually come together in the end. 
  
 ### Mobile and Tablet Testing
 
+This program ran the exact same, bugs and all, regardless of which OS system, device, or browser I used. I tested it across multiple devices new gen as well as older generation. Everything from the display of the terminal, to the color coding of the colorama, and the way the game interacted, as well as prompt validation and more all worked in the exact same manner.
+
 ## Bugs
 
-1. Correctly placing clear() function in code
+1. Correctly placing clear() function in code (unfixed)
 
     * I was/am getting issues with the display after deployment and where the clear function starts cutting off or clearing the text in places where its either aesthetically not ideal, or it hinders the game from being playable due to the limited display of the current round. 
 
-2. Getting the ships not to overlap
+2. Getting the ships not to overlap (fixed)
 
     * The most difficult function of this entire code for me was the place_ships function. It took me the longest to make sense of, and it took the most trial and error through seeing the results with print(). The were often stacking over each other, sometimes even more than just 2. After a while I was able to figure out a sort of detection loop to figure out if a ship has been previously placed there. 
+
+3. 
+
+    * 
+
+4. 
+
+    * 
+
+5. 
+
+    * 
+
+6. 
+
+    * 
+
+7. 
+
+    * 
+
+8. 
+
+    * 
 
 ## Future Features
 
@@ -160,7 +225,7 @@ The green colored lettering for one, and the green background for the other user
 14. Being able to add your name as a user for a more personal experience
 15. Implementing hits when a hit gets close to an enemies ship e.g. "You missed, but your shot rocked a boat nearby!"
 
-## New Applied Functions and Features Learned
+## New Applied Functions and Features Learned (explain each in detail before submission)
 
 if __name__ == "__main__":
 
@@ -168,7 +233,11 @@ clear()
 
 colorama
 
-try-except/ valueerror
+colorama autoreset=true
+
+The underscore variable in python/ throwaway variable
+
+try-except/valueerror
 
 valueerror custom exceptions
 
@@ -178,13 +247,11 @@ all()
 
 classes
 
-continue
+random.choice
 
-break
+Python Dictionairies 
 
-/n
-
-## Deployment
+## Deployment (Update deployment accordingly with vscode and render, etc. before submission)
 
 ### Cloning Repository 
 
