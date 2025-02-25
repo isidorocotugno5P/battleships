@@ -76,19 +76,27 @@ As a player I want to be informed of when all ships are sunk on either side, det
 
 ### User Board
 
-![User Board](../battleships/assets%20/images)
+Below you will find an image of how the users board would be displayed. The player should be able to see where their ships are located without the computer knowing their location.
+
+![User Board](../battleships/assets%20/images/user-board.png)
 
 ### Computer Board
 
-![Computer Board](../battleships/assets%20/images)
+Below you will find a picture of the computers game board, that at first appears to be empty, but in reality, they are hidden so the user can not see them, otherwise it would make the game far too easy, reducing the quality of the user experience. 
+
+![Computer Board](../battleships/assets%20/images/computer-board.png)
 
 ### Intro
 
-![Intro](../battleships/assets%20/images)
+Below is an image of the intro text displayed once the game is run with a welcome message as well as a simple breakdown of the rules and cues.
+
+![Intro](../battleships/assets%20/images/game-intro.png)
 
 ### End Game
 
-![End](../battleships/assets%20/images)
+Below you will find the display message that appears the moment someone wins/loses. If the computer wins it is red, since the user lost, but if the user wins, it is green.
+
+![End](../battleships/assets%20/images/game-end.png)
 
 ## Styles
 
@@ -135,11 +143,15 @@ Below you will find a flow chart of the functions
 
     * Entire codebase, but also used the website for educational content
 
-### Libraries 
+### Libraries & Modules
 
 1. [Colorama](https://pypi.org/project/colorama/)
 
     * Coloring 
+
+2. [Youtube](https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU)
+
+    * Used this playlist in order to understand certain concepts I was not able to grasp in the lessons
 
 ### Platforms & Tools
 
@@ -154,6 +166,10 @@ Below you will find a flow chart of the functions
 3. [Copilot](https://github.com/features/copilot)
 
     * AI for code optimization, cleanliness, and efficiency 
+
+3. [Render](https://render.com/)
+
+    * Deployment
 
 ## Credits 
 
@@ -175,7 +191,7 @@ This program ran the exact same, bugs and all, regardless of which OS system, de
 
 ## Bugs
 
-1. Correctly placing clear() function in code (unfixed)
+1. Correctly placing clear() function in code (fixed)
 
     * I was/am getting issues with the display after deployment and where the clear function starts cutting off or clearing the text in places where its either aesthetically not ideal, or it hinders the game from being playable due to the limited display of the current round. 
 
@@ -183,29 +199,28 @@ This program ran the exact same, bugs and all, regardless of which OS system, de
 
     * The most difficult function of this entire code for me was the place_ships function. It took me the longest to make sense of, and it took the most trial and error through seeing the results with print(). The were often stacking over each other, sometimes even more than just 2. After a while I was able to figure out a sort of detection loop to figure out if a ship has been previously placed there. 
 
-3. 
+3. Winner not being detected or displayed (fixed)
 
-    * 
+    * I was not able to access the dictionairy I created which meant I was not able to manipulate or remove ships once they have been sunk and my code was relying on that in order to detect a winner. I had to create a copy of the dictionairy so I would be able to delete original entries, while still iterating over the copy. Once I was able to access it, I was able to delete entire ships once they have been sunk successfully. Immediately after, my detection started working and a winner was displayed. 
 
-4. 
+4. Ship placement not very efficient or intelligent (unfixed)
 
-    * 
+    * Although it works, the issue is that at times, the randomized placement of the ships would be localized in a specific area e.g. all large ships in close vacinity, which would make the game too easy and hurt the quality of the user experience.
 
-5. 
+5. Script does not replay (unfixed)
+    * Although I wanted to be able to prompt the user for a "replay", I did not have the capacity and the time to implement it as I was having issues with certain loops when trying to implement a function that would restart the game.
 
-    * 
+6. Inefficient display of board (unfixed)
 
-6. 
+    * It would have been a better user experience, due to creating a far better overview for the viewer if I would have had coordinates on the side of the board, displaying x row and x column in order to give the user more precision in their game strategy without having to count each step.
 
-    * 
+7. Board was not being targeted correctly (fixed)
 
-7. 
+    * Since python was not targeting my board correctly, always updating the symbols on the board off by one vertically and horizontally. I then remembered that Python uses 0-based indexing and I was able to figure out how to very easily target the correct space on the board.
 
-    * 
+8. Ability to input special characters or letters (fixed)
 
-8. 
-
-    * 
+    * I had to add a ValueError exception with a custom message in order to fix the issue of the user being able to input any letter or special character causing the game to "skip" a turn, not function properly, or break.
 
 ## Future Features
 
@@ -251,17 +266,17 @@ random.choice
 
 Python Dictionairies 
 
-pop()
+del() 
 
 ## Deployment (Update deployment accordingly with vscode and render, etc. before submission)
 
 ### Cloning Repository 
 
-1. Go to project repository [here](https://github.com/isidorocotugno5P/project2)
+1. Go to project repository [here](https://github.com/isidorocotugno5P/battleships)
 2. Click on the green button labeled "Code" near the top right of the repository
 3. Under the "Local" tab under the green button labeled "Code" copy the URL using HTTPS, make sure you are on the "HTTPS" beneath the "Local" tab of the green button labeled "<> Code"
 4. You can choose to clone the repository with "SSH" or "GTIHub CLI" beneath the tabs labeled under each respective name
-5. To copy each given URL click the copy button next to the URL under each given tab or highlight the URL itself and copy it directly. 
+5. To copy each given URL click the copy button next to the URL under each given tab or highlight the URL itself and copy it directly
 6. Open a terminal on your personal workspace on Github
 7. Adapt and change the current working directory to the specific location where you would like your directory cloned
 8. Into the terminal type in <code>git clone</code> and paste any of the URL you copied earlier
@@ -295,6 +310,41 @@ pop()
 1. If you do not need a local deployment follow these steps in order to achieve a quick overview of the website
 2. Once you have forked or cloned the linked repository, in your own github dashboard once you have clicked on the cloned or forked repository click on the green button labelled "Open" which will prompt your Github IDE workstation 
 3. In the terminal type in <code>python3 -m http.server</code> to create a port
-4. After a few seconds you should receive a pop up on the right of your workstation which will prompt you to make a choice on the deployed port. 
+4. After a few seconds you should receive a pop up on the right of your workstation which will prompt you to make a choice on the deployed port.
 5. To view the current version of the coded website click on the button labelled "Open Browser"
 6. This is the current version of the website that has been coded, changed, adapted, or altered on the current repository you have cloned or forked, any saved changed will be adapted on this version of the website before you <code>git push</code> the code and deploy the website
+
+### Clone to VS Code from GitHub
+
+1. Before cloning the GitHub repo to VS Code make sure you have Git installed on your device. To check if you have Git on your device already, open your terminal and paste in <code>git --version</code>. If you do not have any please download Git from the official website [here](https://git-scm.com/)
+2. If you do not have it already install VS Code [here](https://code.visualstudio.com/)
+3. Launch VS Code
+4. Open the terminal and paste the URL of the GitHub repository
+  a. <code>https://github.com/isidorocotugno5P/battleships</code>
+5. Choose a local directory where you would like to clone the repository
+6. In the command palette type: ">GitHub: Sign in to GitHub"
+7. Follow the prompts to sign in to your GitHub account
+8. After opening the cloned repo you should now be able to change, commit, and push the changes to your own GitHub repository. 
+
+### Render Deployment 
+
+1. Visit [Render](https://render.com/), click "Get Started", and sign up for Render through GitHub
+2. Log into GitHub if necessary and select "Authorize Render"
+3. Confirm your email address and click "Complete Sign-Up"
+4. Open your email and confirm through the verification link 
+5. On your Render dashboard click "New+" and select "Web Service"
+6. On the right of the page select "+ Connect Account" for GitHub
+7. Select your GitHub account
+8. Ensure "All Repositories" is selected and click "Install"
+9. Search for relevant repository and click "Connect"
+10. Add a name for your web service
+11. Set the build command: <code>pip install -r requirements.txt && npm install</code>
+12. Set the Start Command: <code>node index.js</code>
+13. Ensure free plan is selected
+14. Scroll down and click "Advanced"
+15. Click "Add Environment Variable"
+16. Add following environment variables 
+  a. Key: PORT, Value: 8000
+  b. Key: PYTHON_VERSION, Value: 3.10.7
+17. Set preferred choice for auto-deployment
+18. Click "Create Web Service" and wait for deployment

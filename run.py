@@ -179,11 +179,13 @@ class BattleshipGame:
             # Checks for winner
             if not self.computer_ships:
                 print(Back.GREEN + "User wins!")
-                print("In order to replay the game, please rerun the program\n")
+                print(
+                    "In order to replay the game, please rerun the program\n")
                 break
             if not self.user_ships:
                 print(Back.RED + "Computer wins!")
-                print("In order to replay the game, please rerun the program\n")
+                print(
+                    "In order to replay the game, please rerun the program\n")
                 break
 
             # Turn taking part of loop
