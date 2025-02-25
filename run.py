@@ -5,6 +5,12 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
 class GameBoard:
     """
     This class represents the Battleship game board.
@@ -130,6 +136,7 @@ class BattleshipGame:
         """
         if player == "User":
             row, col = self.user_board.get_user_guess(self.user_guesses)
+            clear()
         else:
             row, col = self.computer_board.get_random_position()
             while (row, col) in self.computer_guesses:
@@ -144,6 +151,7 @@ class BattleshipGame:
             self.user_guesses if player == "User" else self.computer_guesses)
         ships = self.computer_ships if player == "User" else self.user_ships
         guessed_positions.add((row, col))
+        
 
         if target_board.grid[row][col] == "S":
             """

@@ -123,7 +123,7 @@ Below you will find the visual depiction of how I used the green color of colora
 
 The green colored lettering for one, and the green background for the other user message is a clear indication of the opposite spectrum. It very intuitively tells the user that someone successfuly made something happen. In this case it is hitting or sinking a ship.
 
-## Syntax (Reupload more current code before submission)
+## Syntax 
 
 Below you will find an image of results on this projects linter
 
@@ -240,35 +240,39 @@ This program ran the exact same, bugs and all, regardless of which OS system, de
 14. Being able to add your name as a user for a more personal experience
 15. Implementing hits when a hit gets close to an enemies ship e.g. "You missed, but your shot rocked a boat nearby!"
 
-## New Applied Functions and Features Learned (explain each in detail before submission)
+## New Applied Functions and Features Learned
 
-if __name__ == "__main__":
+1. if __name__ == "__main__":
+  * This condition ensures that specific blocks of code only execute when the script is run directly, preventing unintended execution when the script is imported elsewhere. I personally did not have this issue when trying things out with my code, but I put it in there anyway for an extra measure of safety.
 
-clear()
+2. clear()
+  * Clears terminal window at a specific point creating a cleaner overview of the terminal and the way that the game is being printed, improving the quality of the user experience. 
 
-colorama
+3. colorama
+  * This is a Python library that allows for colored terminal output, which allowed me to improve game play and elevate user experience through better visual cues. 
 
-colorama autoreset=true
+4. colorama autoreset=true
+ * This feature ensured that color formatting resets automatically after each print statement, before adding this I had a bug in my code where everything was inconsistently colored across. 
 
-The underscore variable in python/ throwaway variable
+5. Throwaway Variable
+  * I learned about this while watching educational videos and I thought it would be interesting to apply to my code to see how it works. As I needed a variable but did not use it syntactically, I thought this could work. 
 
-try-except/valueerror
+6. ValueError
+  * Since this was arguably one of the most important aspects of my code (prompting user for the CORRECT input), I had to make sure nothing else could be an input apart from the numbers allowed in the game. This helped prevent program crashes from invalid input.
 
-valueerror custom exceptions
+7. random.choice
+  * I could not remember if this was in the lessons or not of the last modules, but I decided to add this to this list anyway cause I through it was a very practical and efficient little piece of a built in function.
 
-while not placed
+8. del() 
+  * This helped me delete ships once they have been destroyed by removing them from the dictionairy. Also a very practical function that would have been great to learn about in general.
 
-all()
+9. Python Dictionairies
+  * Although this was covered in the course content, I wanted to mention it again because coding this game forced me to have a far better understanding over dictionairies, how to access them, how to collect data, how to change or remove data, and how to use this data. 
 
-classes
+10. all()
+  * This is an incredibly useful function for validating conditions across multiple elements. It simplifies checking multiple conditions at once instead of using loops and if statements. It helped me ensure proper ship placement in the Battleship game by verifying that all required positions were available before placing a ship.
 
-random.choice
-
-Python Dictionairies 
-
-del() 
-
-## Deployment (Update deployment accordingly with vscode and render, etc. before submission)
+## Deployment 
 
 ### Cloning Repository 
 
