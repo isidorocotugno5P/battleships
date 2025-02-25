@@ -6,23 +6,89 @@ Welcome to Battleships!
 
 ## User Stories 
 
-### x. User Story x: 
+### 1. User Story 1: 
 
--
+I want to be able to challenge myself in a turn-based Battleship strategy game against a computer, and have a engaging time through the user friendly layout and simple game design.
 
 - Acceptance Criteria:
   
-  * 
+  * The game has to alternate between player and computer
+  * The player must be able to input 2 numbers for coordinates 
+  * The game should inform the user whether attack was hit, miss, or sunk a ship
+  * The game is over once all ships on either side are destroyed
 
 - Key Tasks:
 
-  * 
+  * Implement function that accepts and validates user input
+  * Program computer logic for effective AI guesses
+  * Update game board every turn to reflect game progress
+
+### 2. User Story 2: 
+
+As a player I want to be able to get information, feedback, and visually clear instrunctions to the game for optimal user experience. 
+
+- Acceptance Criteria:
+  
+  * The board should display different symbols/letters indicating hits, misses, and empty slots
+  * Different game events should be color coded intuitively to get instant user feedback and response
+  * The instrunctions should be displayed for a clear game approach
+
+- Key Tasks:
+
+  * Integrate colorama to color code specific game events
+  * Update game board to symbollicaly display different game events 
+  * Ensure clear and readable terminal output for optimal user experience
+  * Display instructions at the start of the game 
+
+### 3. User Story 3: 
+
+As a user I want the computer to be able to place its ships differently each game, so that each game is unique and without overlap
+
+- Acceptance Criteria:
+  
+  * The computer should place its 5 differently sized ships at the beginning of the game
+  * Ships should either be displayed horizontally or vertically for variety
+  * Ships may not cross each other
+
+- Key Tasks:
+
+  * Develop function that creates board-size valid coordinates
+  * Ensure said function makes sure space is available before placing its ships
+  * Store the ship locations for accurate ship placement
+
+### 4. User Story 4: 
+
+As a player I want to be informed of when all ships are sunk on either side, determining and displaying a winner. 
+
+- Acceptance Criteria:
+  
+  * The game has to track the number of hits of all ships
+  * When the entire ship is destroyed, the game has to indicate to the user that the ship has sunk
+  * Once all ships are sunk on either side, the game should display the winner
+
+- Key Tasks:
+
+  * Integrate feature that tracks every hit per ship
+  * Display user message when an entire ship has been destroyed
+  * End game and display user message that announces a winner 
 
 ## Features 
 
 ## Styles
 
+Since this project was a lot less design heavy then the first two, the Style section of this README is very limited to my knowledge and my capacity, but through the help of my mentor I learned about colorama which helped me make the most of styling the game. Through the use of colorama I was able to get a message to the user by solely using visual cues that are colored in an intuitive way. 
+
 ### Color Schemes
+
+Although color schemes are intuitive, with such simple colors, and limited choices, the intuitive options increase, since another viable option would have been to mark all of the successful computer ship hits as red foreground, and the computer sinking your ship as red background, and only using green foreground and background for the players hits and sinks. This would have arguably been better than the stylistic choices I might have made here, but something like that would have to be tested on an open market to get successful and reliable results. 
+
+#### Red Foreground
+
+The red colored lettering for the "Miss" user message is the only red in the game indicating a miss, making it visually very clear what has happened.
+
+#### Green Foreground and Background
+
+The green colored lettering for one, and the green background for the other user message is a clear indication of the opposite spectrum. It very intuitively tells the user that someone successfuly made something happen. In this case it is hitting or sinking a ship.
 
 ## Function Flow
 
@@ -36,37 +102,87 @@ Welcome to Battleships!
 
 ### Libraries 
 
-### Platforms 
+1. [Colorama](https://pypi.org/project/colorama/)
+
+    * Coloring 
+
+### Platforms & Tools
 
 1. [Github](https://github.com/)
 
-    * Storing code remotely and deployment
+    * Storing code remotely
 
-2. [Gitpod](https://www.gitpod.io/)
+2. [VS Code](https://www.gitpod.io/)
 
     * IDE for project developemnt 
 
-### Other Tools 
+3. [Copilot](https://github.com/features/copilot)
+
+    * AI for code optimization, cleanliness, and efficiency 
 
 ## Credits 
+
+1. [Code Inspiration & Logic](https://www.youtube.com/watch?v=tF1WRCrd_HQ&t=1s)
+
+    * Used this as an inspiration for my project as well as overall game logic 
 
 ## Testing 
 
 ### General Testing 
-
-#### Plagiarism and AI Test
  
 ### Mobile and Tablet Testing
 
 ## Bugs
 
-### Fixed Bugs 
+1. Correctly placing clear() function in code
 
-### Unfixed Bugs 
+    * I was/am getting issues with the display after deployment and where the clear function starts cutting off or clearing the text in places where its either aesthetically not ideal, or it hinders the game from being playable due to the limited display of the current round. 
+
+2. Getting the ships not to overlap
+
+    * The most difficult function of this entire code for me was the place_ships function. It took me the longest to make sense of, and it took the most trial and error through seeing the results with print(). The were often stacking over each other, sometimes even more than just 2. After a while I was able to figure out a sort of detection loop to figure out if a ship has been previously placed there. 
 
 ## Future Features
 
+1. A more intelligent AI that directs its attacks logically around successful hits
+2. A multiplayer mode that allows player 1 vs player 2 gameplay
+3. Intergrate different difficulty levels
+4. Using a GUI framework for a more visual experience
+5. Replay option allowing the player to restart the game instead of rerunning the script
+6. Implementing a score tracking feature
+7. Adding ship symbols for user board
+8. Allowing the user to choose a custom board size and/or difficulty
+9. Allowing the user to place the ships themselves
+10. Adding special abilities that give you advantages throughout the game
+11. Implementing a turn countdown timer
+12. Adding an "undo last move" option
+13. Adding sound effects for better user experience
+14. Being able to add your name as a user for a more personal experience
+15. Implementing hits when a hit gets close to an enemies ship e.g. "You missed, but your shot rocked a boat nearby!"
+
 ## New Applied Functions and Features Learned
+
+if __name__ == "__main__":
+
+clear()
+
+colorama
+
+try-except/ valueerror
+
+valueerror custom exceptions
+
+while not placed
+
+all()
+
+classes
+
+continue
+
+break
+
+/n
 
 ## Deployment
 
