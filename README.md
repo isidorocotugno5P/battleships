@@ -1,8 +1,15 @@
 # Battleships
 
-Welcome to Battleships!
+## Welcome to Battleships!
 
+![Graphic](assets/images/graphic.png)
 [Link to Live Site](https://battleships-lgau.onrender.com/)
+
+## Introduction 
+
+Welcome to Battleships a turn-based command-line strategy game that challenges the user to face an AI on the oceanic battlefield, trying to destroy each others fleet up until the last ship to decide a winner. Players will take turns in guessing coordinates on a board that is 10 x 10 in size, and hitting 5 ships, one of each size 1, 2, 3, 4, and 5. The game is complete and ends when one player has defeated the opponenets entire fleet successfuly. S marks ships, X marks hits, and M marks misses to visually inform the user of what is going on, on the battlefield. There are also hit, sunk, or miss user messages to inform what has happened verbally. 
+
+Throughout development, I focused on optimizing ship placement algorithms to prevent overlap, refining input validation for seamless user interaction, and implementing a structured game loop to ensure smooth execution. While this version of Battleship is built for the terminal, the modular design allows for potential expansion into a graphical interface or online multiplayer adaptation. This project reflects my ability to break down a problem, write clean and scalable code, and iteratively improve functionality through rigorous testing and debugging.
 
 ## Table of Content
 
