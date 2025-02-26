@@ -4,6 +4,56 @@ Welcome to Battleships!
 
 [Link to Live Site](https://battleships-lgau.onrender.com/)
 
+## Table of Content
+
+- [Battleships](#battleships)
+  - [Table of Content](#table-of-content)
+  - [User Stories](#user-stories)
+    - [1. User Story 1:](#1-user-story-1)
+    - [2. User Story 2:](#2-user-story-2)
+    - [3. User Story 3:](#3-user-story-3)
+    - [4. User Story 4:](#4-user-story-4)
+  - [Features](#features)
+    - [User Board](#user-board)
+    - [Computer Board](#computer-board)
+    - [Intro](#intro)
+    - [End Game](#end-game)
+  - [Styles](#styles)
+    - [Color Schemes](#color-schemes)
+      - [Red Foreground](#red-foreground)
+      - [Green Foreground and Background](#green-foreground-and-background)
+  - [Syntax](#syntax)
+  - [Function Flow](#function-flow)
+  - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Libraries \& Modules](#libraries--modules)
+    - [Platforms \& Tools](#platforms--tools)
+  - [Credits](#credits)
+  - [Testing](#testing)
+    - [General Testing](#general-testing)
+    - [Mobile and Tablet Testing](#mobile-and-tablet-testing)
+  - [Bugs](#bugs)
+  - [Future Features](#future-features)
+  - [New Applied Functions and Features Learned](#new-applied-functions-and-features-learned)
+    - [1. if __name__ == "__main__":](#1-if-name--main)
+    - [2. clear()](#2-clear)
+    - [3. colorama](#3-colorama)
+    - [4. colorama autoreset=true](#4-colorama-autoresettrue)
+    - [5. Throwaway Variable](#5-throwaway-variable)
+    - [6. ValueError](#6-valueerror)
+    - [7. random.choice](#7-randomchoice)
+    - [8. del()](#8-del)
+    - [9. Python Dictionairies](#9-python-dictionairies)
+    - [10. all()](#10-all)
+  - [Deployment](#deployment)
+    - [Cloning Repository](#cloning-repository)
+    - [Fork](#fork)
+    - [Local Deployment](#local-deployment)
+    - [Python Webserver Port](#python-webserver-port)
+    - [Clone to VS Code from GitHub](#clone-to-vs-code-from-github)
+    - [Render Deployment](#render-deployment)
+
+
 ## User Stories 
 
 ### 1. User Story 1: 
@@ -191,9 +241,18 @@ This program ran the exact same, bugs and all, regardless of which OS system, de
 
 ## Bugs
 
-1. Correctly placing clear() function in code (fixed)
+1. Correctly placing clear() function in code (fixed & unfixed)
 
     * I was/am getting issues with the display after deployment and where the clear function starts cutting off or clearing the text in places where its either aesthetically not ideal, or it hinders the game from being playable due to the limited display of the current round. 
+    
+    * Since I am deploying on Render, and the result was consistently different after deployment as to how the terminal turned out by using the clear() function, I was unsure on how to fix this issue post deployment as I was unsure why my code was coming out perfect in my terminal in my IDE, but then got messed up visually by the clear() function when running the program on the deployed site on Render. Essentialy it removed everything it needed to, just like it was supposed to except for the first two rows of the user board and its title "User Board:", creating an awkward layering of correct as well as incorrect output. Since testing this was extremely time consuming, inefficient, and frustrating, I have not been able to figure out exactly where to place the clear() function to get the desired result. I am hoping that upon further testing I will be able to find the right spot for it in my code. 
+
+    * When inputting incorrect information into the prompt, once or several times, and then inputting the correct data, led to this issue worsening, for some reason showing more of the previous game play that should have been cleared from the terminal for a better user experience, instead this makes it much worse. 
+
+    * Below you will find a picture of the issue that presents itself when deployed and how it is supposed to look (the "supposed to look" is the actual terminal window of my own VS Code, so I wonder what went wrong or why it is so different in deployment). From the VS Code terminal picture you can tell I already played 7 rounds to simulate the same error as in deployment, but it simply does not happen. 
+
+    ![Deployed Bug (Wrong)](assets/images/bug-deployment.png)
+    ![Undeployed VS Code Terminal (Right)](assets/images/display-terminal.png)
 
 2. Getting the ships not to overlap (fixed)
 
