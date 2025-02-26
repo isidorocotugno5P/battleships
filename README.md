@@ -3,6 +3,7 @@
 ## Welcome to Battleships!
 
 ![Graphic](assets/images/graphic.png)
+
 [Link to Live Site](https://battleships-lgau.onrender.com/)
 
 ## Introduction 
